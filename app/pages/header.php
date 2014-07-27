@@ -15,9 +15,9 @@
       <h1>Zeki Müren</h1>
       <p class="lead">
         <span class="pull-left">Tüm Albümlerini Dinle</span><span class="pull-right">
-<iframe src="http://ghbtns.com/github-btn.html?user=hasantayyar&repo=zeki-muren&type=fork"
-  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=hasantayyar&repo=zeki-muren&type=watch"
-  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe> </span> 
+        <a href="https://twitter.com/htayyar" class="btn btn-sm btn-info">@htayyar</a> 
+        <a href="https://github.com/hasantayyar/zeki-muren" class="btn btn-sm btn-info">Fork at Github</a>
+        </span> 
 </p>
     </div>
   </div>
