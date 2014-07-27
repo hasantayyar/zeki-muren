@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootswatch: Cerulean</title>
+    <title>Zeki Müren Şarkıları Dinle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/css/bootstrap.custom.dist.css" media="screen">
   </head>
