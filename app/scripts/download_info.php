@@ -1,20 +1,25 @@
 <?php
-$apikey = "f5af8b18105cb72ed5473827d4fe407b";
-$url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=Zeki%20M%C3%BCren&api_key=".$apikey."&format=json";
-$urlSongs = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=".$apikey."&artist=Zeki%20M%C3%BCren&format=json&album=";
+
+include __DIR__."/../../bootstrap.php";
+
+$url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=Zeki%20M%C3%BCren&api_key=".$lastfmApikey."&format=json";
+$urlSongs = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=".$lastfmApikey."&artist=Zeki%20M%C3%BCren&format=json&album=";
 $youtubeUrl = "https://gdata.youtube.com/feeds/api/videos?orderby=viewCount&start-index=1&max-results=1&alt=json&q=";
 $data = json_decode(file_get_contents($url),1);
-$appRoot = __DIR__."/../../";
-$artist = "Zeki Müren";
+
 
 foreach($data['topalbums']['album'] as $album){
 	$albumInfo = array('name'=>$album['name']);
 	echo $albumInfo['name']." is downloading\n";
 
-	$coverPath = $appRoot.'assets/covers/'.md5($albumInfo['name']).'.jpg';
+
+	$coverPath = '/assets/covers/'.md5($albumInfo['name']).'.jpg';
+	$defultCover = '/assets/images/default_cover.jpg';
 	$thumb = array_pop($album['image']);
-	if(!file_exists($coverPath)){
-		$f = fopen($coverPath,'w');
+	if($thumb["#text"]=="http://cdn.last.fm/flatness/catalogue/noimage/2/default_album_medium.png"){
+		$coverPath = $defultCover;
+	} else if(!file_exists($appRoot.$coverPath)){
+		$f = fopen($appRoot.$coverPath,'w');
 		fwrite($f,file_get_contents($thumb['#text']));
 		fclose($f);
 	} 
@@ -31,8 +36,13 @@ foreach($data['topalbums']['album'] as $album){
 	}
 	print_r($albumInfo);
 	$albums[] =  $albumInfo;
+
+	
+	$f = fopen($appRoot.'/data/album_'.md5($albumInfo['name']).'.json','w');
+	fwrite($f,json_encode($albumInfo));
+	fclose($f);
 }
 
-$f = fopen('data/albums.json','w');
+$f = fopen($appRoot.'/data/albums.json','w');
 fwrite($f,json_encode($albums));
 fclose($f);

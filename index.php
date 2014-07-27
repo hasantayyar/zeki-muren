@@ -1,5 +1,6 @@
 <?php
-require 'app/nanite.php';
+require 'bootstrap.php';
+
 get('/', function(){
     include 'app/pages/index.php';
 });
