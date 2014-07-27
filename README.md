@@ -7,3 +7,7 @@ http://zeki-muren.herokuapp.com/
 - Raki
 - Balik
 - Roka
+
+###Todo
+
+- mini embedded youtube video player
