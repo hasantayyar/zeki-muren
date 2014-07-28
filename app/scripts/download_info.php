@@ -31,7 +31,7 @@ foreach($data['topalbums']['album'] as $album){
 		$albumInfo['songs'][] = array(
 			'name'=>$song['name'],
 			'duration' => $song['duration'],
-			'video' => $videoData['feed']['entry'][0]['link'][0]['href']
+			'video' => str_replace(array("watch?v=","&feature=youtube_gdata"),array("v/",""),$videoData['feed']['entry'][0]['link'][0]['href'])
 		);
 	}
 	print_r($albumInfo);
