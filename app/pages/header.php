@@ -20,7 +20,8 @@
         <span class="pull-left">Tüm Albümlerini Dinle</span><span class="pull-right">
         <a href="https://twitter.com/htayyar" class="btn btn-sm btn-info">@htayyar</a> 
         <a href="https://github.com/hasantayyar/zeki-muren" class="btn btn-sm btn-info">Fork at Github</a>
-        </span> 
+       <a href="https://github.com/hasantayyar/zeki-muren/issues/new" class="btn btn-sm btn-warning">Report bug</a>
+	</span> 
 </p>
     </div>
   </div>

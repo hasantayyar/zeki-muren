@@ -7,6 +7,9 @@ $urlSongs = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=".$l
 $youtubeUrl = "https://gdata.youtube.com/feeds/api/videos?orderby=viewCount&start-index=1&max-results=1&alt=json&q=";
 $data = json_decode(file_get_contents($url),1);
 
+$totalPages = $data['topalbums']['@attr']['totalPages'];
+for($i=1;$i<=$totalPages;$i++){
+        $data = $i>1?json_decode(file_get_contents($url."&page=".$i),1):$data;
 
 foreach($data['topalbums']['album'] as $album){
 	$albumInfo = array('name'=>$album['name']);
@@ -42,7 +45,7 @@ foreach($data['topalbums']['album'] as $album){
 	fwrite($f,json_encode($albumInfo));
 	fclose($f);
 }
-
+}
 $f = fopen($appRoot.'/data/albums.json','w');
 fwrite($f,json_encode($albums));
 fclose($f);
