@@ -14,8 +14,7 @@ for($i=1;$i<=$totalPages;$i++){
 foreach($data['topalbums']['album'] as $album){
 	$albumInfo = array('name'=>$album['name']);
 	echo $albumInfo['name']." is downloading\n";
-
-
+	
 	$coverPath = '/assets/covers/'.md5($albumInfo['name']).'.jpg';
 	$defultCover = '/assets/images/default_cover.jpg';
 	$thumb = array_pop($album['image']);
@@ -34,7 +33,7 @@ foreach($data['topalbums']['album'] as $album){
 		$albumInfo['songs'][] = array(
 			'name'=>$song['name'],
 			'duration' => $song['duration'],
-			'video' => str_replace(array("watch?v=","&feature=youtube_gdata"),array("v/",""),$videoData['feed']['entry'][0]['link'][0]['href'])
+			'video' => str_replace( array("&feature=youtube_gdata"), array(""),$videoData['feed']['entry'][0]['link'][0]['href'])
 		);
 	}
 	print_r($albumInfo);
