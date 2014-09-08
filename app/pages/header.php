@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  manifest="zekimuren.appcache">
   <head>
     <meta charset="utf-8">
     <title>Zeki Müren<?php echo isset($albumName)?" - $albumName dinle":" Şarkıları Dinle";?></title>
